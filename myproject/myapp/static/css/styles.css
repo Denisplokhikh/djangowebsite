@@ -1,0 +1,89 @@
+/* styles.css */
+
+/* Сброс предустановленных стилей */
+body, h2, form, p {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+/* Установка фона и центровка содержимого */
+body {
+    background-color: #f8f9fa; /* Светлый фон */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Заголовок */
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Стили для формы */
+form {
+    background-color: #ffffff; /* Белый фон для формы */
+    border-radius: 30px;
+    border: 2px solid transparent;
+    background: linear-gradient(#eee, #eee 0) padding-box,
+    linear-gradient(to right, rgb(255, 255, 255), rgb(23, 30, 36)) border-box;
+    padding: 40px;
+    width: 300px; /* Ширина формы */
+    border-color: #0056b3;
+}
+
+/* Стили для группы ввода */
+.form-group1, .form-group2 {
+    margin-bottom: 15px;
+}
+
+/* Лейблы */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Поля ввода */
+input{
+    width: 100%; /* Полная ширина поля */
+    padding: 10px; /* Отступы внутри поля */
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Кнопка входа */
+.loginbutton {
+    text-align: center;
+}
+
+button {
+    background-color: #007bff; /* Цвет кнопки */
+    color: white; /* Цвет текста */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Плавный переход цвета */
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Темный цвет при наведении */
+}
+
+/* Сообщение об ошибке */
+.error {
+    color: red; /* Красный цвет текста для ошибок */
+    margin-top: 15px;
+}
+
+/* Стили для ссылки регистрации */
+p {
+    margin-top: 10px;
+}

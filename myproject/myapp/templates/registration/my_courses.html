@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свободные Курсы</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Панель навигации -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style='padding-left:30px;'>
+    <div class="container-fluid" class="pl-5">
+        <a class="navbar-brand" href="{% url 'home' %}">Мой Сайт</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{%url 'protected'%}">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'courses' %}">Курсы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'contacts'%}">Контакты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'my_courses' %}">Мои курсы</a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link">{{ user.profile.role }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <h1>Мои курсы</h1>
+{% if enrolled_courses %}
+            <div class="row">
+                {% for enrollment in enrolled_courses %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ enrollment.course.course_name }}</h5>
+                                <p class="card-text">{{ enrollment.course.course_description }}</p>
+                                <p class="card-text">Цена: {{ enrollment.course.course_price }} рублей</p>
+                                <p class="card-text">Дата начала: {{ enrollment.course.course_startdate|date:"d.m.Y" }}</p>
+                                <iframe width="330" height="200" src={{enrollment.course.course_link}} title=""
+                                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="container mt-4">
+            <p>Вы не записаны ни на один курс!</p>
+            </div>
+    {% endif %}
+</div>
+
+<!-- Подключение скриптов Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

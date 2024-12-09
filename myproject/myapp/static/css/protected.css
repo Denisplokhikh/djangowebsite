@@ -1,0 +1,11 @@
+body{
+    background-color: azure;
+}
+.info{
+    border-radius: 20px ;
+    background-color: rgb(139, 139, 139);
+    padding: 20px 20px 20px 20px;
+}
+img{
+    border-radius: 20px;
+}
